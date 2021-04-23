@@ -133,8 +133,11 @@ Section:NewDropdown("Select Target", "DropdownInf", {
     "WhiteBeard",
     "Akainub",
     "God Lightning",
-    "Sans",
-    "Sword Master"
+    "Fuji",
+    "BaconClown",
+    "Enelu",
+    "KizaWick",
+    "SeaBeast"
 }, function(currentOption)
     print(currentOption)
     target = currentOption
