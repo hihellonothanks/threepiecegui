@@ -160,6 +160,8 @@ end
     end
 end)
 
+local Tab = Window:NewTab("Other")
+
 local Section = Tab:NewSection("Other")
 
 Section:NewButton("Buy Random Fruit (1.5m)", "Buys a random fruit.", function()
@@ -170,7 +172,7 @@ Section:NewButton("Get Mink", "Gets Mink race.", function()
 fireclickdetector(game:GetService("Workspace").Carrot.ClickPart.ClickDetector)
 end)
 
-Section:NewButton("Get EXP", "Gets Mink race.", function()
+Section:NewButton("Get EXP", "Gets EXP", function()
         while wait() do
  game:GetService("ReplicatedStorage").AddExpRe:FireServer()
 end
