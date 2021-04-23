@@ -170,7 +170,7 @@ Section:NewButton("Get Mink", "Gets Mink race.", function()
 fireclickdetector(game:GetService("Workspace").Carrot.ClickPart.ClickDetector)
 end)
 
-Section:NewButton("Get Mink", "Gets Mink race.", function()
+Section:NewButton("Get EXP", "Gets Mink race.", function()
         while wait() do
  game:GetService("ReplicatedStorage").AddExpRe:FireServer()
 end
