@@ -169,7 +169,7 @@ local Tab = Window:NewTab("Other")
 local Section = Tab:NewSection("Other")
 
 Section:NewButton("Buy Random Fruit (1.5m)", "Buys a random fruit.", function()
-    fireclickdetector(game:GetService("Workspace")["FruitShop By PreciousBeam"].FruitSeller.ClickPart.ClickDetector)
+    fireclickdetector(game:GetService("Workspace")["Random fruit"].FruitSeller.ClickPart.ClickDetector)
 end)
 
 Section:NewButton("Get Mink", "Gets Mink race.", function()
