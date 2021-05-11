@@ -144,6 +144,10 @@ Section:NewDropdown("Select Target", "DropdownInf", {
 end)
 
 
+_G.distance = nil
+Section:NewSlider("Distance", "SliderInfo", 20, -20, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    _G.distance = s
+end)
 
 _G.tping = nil
 Section:NewToggle("Autofarm Target", "ToggleInfo", function(state2)
@@ -153,11 +157,25 @@ if state2 then
     _G.tping = false
 end
     while _G.tping do wait()
-            Plr.Character.Humanoid:ChangeState(11)
+
+           game:GetService("RunService").RenderStepped:Connect(function()
+               if _G.tping then
+    Plr.Character.Humanoid:ChangeState(11)
+    end
+           end)
+
+if _G.distance < 0 then
+game.Players.LocalPlayer.DevCameraOcclusionMode = "Invisicam"
+else
+game.Players.LocalPlayer.DevCameraOcclusionMode = "Zoom"
+end
+
+        wait(0.5)
     for _,v in pairs(game.Workspace:GetDescendants()) do
   if string.find(v.Name, target) and v:FindFirstChild("HumanoidRootPart") ~= nil then
       if v:FindFirstChild("Humanoid").Health > 0 then
-      Plr.Character:WaitForChild("HumanoidRootPart").CFrame = v:FindFirstChild("HumanoidRootPart").CFrame*CFrame.new(0, 0, 5)
+      game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v:WaitForChild("HumanoidRootPart").CFrame*CFrame.new(0, _G.distance, 0)
+      Plr.Character.HumanoidRootPart.CFrame = CFrame.new(Plr.Character.HumanoidRootPart.Position, v.HumanoidRootPart.Position)
       end
   end
     end
